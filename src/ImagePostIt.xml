@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget
+    id="mendix.imagepostit.ImagePostIt"
+    pluginWidget="true"
+    needsEntityContext="true"
+    offlineCapable="true"
+    supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd"
+>
+    <name>Image Post It</name>
+    <description>Work with post its on an image</description>
+    <icon />
+    <properties>
+        <propertyGroup caption="Image">
+            <property key="imageUrl" type="textTemplate" required="true">
+                <caption>Image URL</caption>
+                <description />
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Post it">
+            <property key="height" type="integer" defaultValue="20">
+                <caption>Height (px)</caption>
+                <description />
+            </property>
+            <property key="width" type="integer" defaultValue="20">
+                <caption>Width (px)</caption>
+                <description />
+            </property>
+            <property key="postItSource" type="datasource" isList="true" required="true">
+                <caption>Post it source</caption>
+                <description />
+            </property>
+            <property key="xcoordinateAttr" type="attribute" dataSource="postItSource" required="true">
+                <caption>X coordinate</caption>
+                <description>x position of post it</description>
+                <attributeTypes>
+                    <attributeType name="String" />
+                </attributeTypes>
+            </property>
+            <property key="ycoordinateAttr" type="attribute" dataSource="postItSource" required="true">
+                <caption>Y coordinate</caption>
+                <description>y position of post it</description>
+                <attributeTypes>
+                    <attributeType name="String" />
+                </attributeTypes>
+            </property>
+            <property key="postItIDAttr" type="attribute" dataSource="postItSource" required="true">
+                <caption>Post it ID</caption>
+                <description>unique identifier of post it</description>
+                <attributeTypes>
+                    <attributeType name="String" />
+                </attributeTypes>
+            </property>
+            <property key="colorAttr" type="attribute" dataSource="postItSource" required="true">
+                <caption>Post it color</caption>
+                <description>color of the post it</description>
+                <attributeTypes>
+                    <attributeType name="String" />
+                </attributeTypes>
+            </property>
+        </propertyGroup>
+        <propertyGroup caption="Events">
+            <property key="onCreateAction" type="action" required="true">
+                <caption>On post it create</caption>
+                <description>Action to be performed when post it is created (image is clicked)</description>
+            </property>
+            <property key="onPostItAction" type="action" required="true">
+                <caption>On post it click</caption>
+                <description>Action to be performed when post it is clicked</description>
+            </property>
+        </propertyGroup>
+    </properties>
+</widget>
