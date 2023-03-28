@@ -81,8 +81,8 @@ export function ImagePostIt({
             if(event.currentTarget.tagName === "IMG") {
                 var rect = parent.getBoundingClientRect();
     
-                var xPosition = event.clientX - rect.left + "px";
-                var yPosition = event.clientY - rect.left + "px";
+                var xPosition = event.clientX - rect.left - (width/2) + "px";
+                var yPosition = event.clientY - rect.top - (height/2) + "px";
 
                 localStorage.setItem("postItYCoordinate", yPosition);
                 localStorage.setItem("postItXCoordinate", xPosition);
@@ -98,7 +98,7 @@ export function ImagePostIt({
         // Return outer div, image inside and postIts as state.
         return (
         <div id="parentOuterDiv">
-            <img src={imageUrl.value} onClick={onImageClick} />
+            <img src={imageUrl.value} onClick={onImageClick} style={{maxWidth:'100%'}} />
             {postIts}
         </div>);
     }
